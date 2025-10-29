@@ -1,23 +1,16 @@
-import { useState } from "react";
 import "./UserInput.css";
 
-function UserInput() {
-  const [data, setData] = useState({
-    initialInvestment: 1000,
-    annualInvestment: 1200,
-    expectReturn: 6,
-    duration: 10
-  })
+interface Props {
+  data: {
+    initialInvestment: number,
+    annualInvestment: number,
+    expectedReturn: number,
+    duration: number
+  },
+  handleChangeInput: (event: React.ChangeEvent<HTMLInputElement>, inputIdentifier: string) => void
+}
 
-  const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement>, inputIdentifier: string) => {
-    setData((oldData) => {
-      return {
-        ...oldData,
-        [inputIdentifier]: Number(event.target.value)
-      }
-    })
-  }
-
+function UserInput({data,handleChangeInput}:Props) {
 
   return (
     <>
@@ -37,7 +30,7 @@ function UserInput() {
         <div className="input-group">
           <p>
             <label>EXPECTED RETURN</label>
-            <input type="number" value={data.expectReturn} required onChange={(event) => handleChangeInput(event, "expectReturn")}/>
+            <input type="number" value={data.expectedReturn} required onChange={(event) => handleChangeInput(event, "expectReturn")}/>
           </p>
 
           <p>
