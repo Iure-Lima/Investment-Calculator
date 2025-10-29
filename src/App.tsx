@@ -6,7 +6,7 @@ import UserInput from './components/UserInput/UserInput'
 
 function App() {
   const [data, setData] = useState({
-    initialInvestment: 1000,
+    initialInvestment: 10000,
     annualInvestment: 1200,
     expectedReturn: 6,
     duration: 10
@@ -21,11 +21,13 @@ function App() {
     })
   }
 
+  const dataIsValid = data.duration >= 1;
+
   return (
     <>
       <Header />
       <UserInput data={data} handleChangeInput={handleChangeInput}/>
-      <Results results={data}/>
+      {dataIsValid ? <Results results={data}/> : <p className='center'>Please enter a duration grater than zero</p>}
     </>
   )
 }

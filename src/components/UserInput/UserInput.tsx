@@ -30,7 +30,7 @@ function UserInput({data,handleChangeInput}:Props) {
         <div className="input-group">
           <p>
             <label>EXPECTED RETURN</label>
-            <input type="number" value={data.expectedReturn} required onChange={(event) => handleChangeInput(event, "expectReturn")}/>
+            <input type="number" value={data.expectedReturn} required onChange={(event) => handleChangeInput(event, "expectedReturn")}/>
           </p>
 
           <p>
