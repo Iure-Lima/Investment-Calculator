@@ -14,6 +14,7 @@ export function calculateInvestmentResults({
 }:Props) {
   const annualData = [];
   let investmentValue = initialInvestment;
+  console.log(investmentValue)
 
   for (let i = 0; i < duration; i++) {
     const interestEarnedInYear = investmentValue * (expectedReturn / 100);

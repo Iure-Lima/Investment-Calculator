@@ -4,7 +4,7 @@ interface Props {
   data: {
     initialInvestment: number,
     annualInvestment: number,
-    expectReturn: number,
+    expectedReturn: number,
     duration: number
   },
   handleChangeInput: (event: React.ChangeEvent<HTMLInputElement>, inputIdentifier: string) => void
@@ -30,7 +30,7 @@ function UserInput({data,handleChangeInput}:Props) {
         <div className="input-group">
           <p>
             <label>EXPECTED RETURN</label>
-            <input type="number" value={data.expectReturn} required onChange={(event) => handleChangeInput(event, "expectReturn")}/>
+            <input type="number" value={data.expectedReturn} required onChange={(event) => handleChangeInput(event, "expectReturn")}/>
           </p>
 
           <p>
