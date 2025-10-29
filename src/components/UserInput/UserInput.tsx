@@ -1,23 +1,16 @@
-import { useState } from "react";
 import "./UserInput.css";
 
-function UserInput() {
-  const [data, setData] = useState({
-    initialInvestment: 1000,
-    annualInvestment: 1200,
-    expectReturn: 6,
-    duration: 10
-  })
+interface Props {
+  data: {
+    initialInvestment: number,
+    annualInvestment: number,
+    expectReturn: number,
+    duration: number
+  },
+  handleChangeInput: (event: React.ChangeEvent<HTMLInputElement>, inputIdentifier: string) => void
+}
 
-  const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement>, inputIdentifier: string) => {
-    setData((oldData) => {
-      return {
-        ...oldData,
-        [inputIdentifier]: Number(event.target.value)
-      }
-    })
-  }
-
+function UserInput({data,handleChangeInput}:Props) {
 
   return (
     <>
